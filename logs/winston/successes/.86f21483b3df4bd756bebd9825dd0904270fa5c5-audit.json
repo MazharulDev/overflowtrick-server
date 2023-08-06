@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/.86f21483b3df4bd756bebd9825dd0904270fa5c5-audit.json",
+    "files": [
+        {
+            "date": 1691290797055,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-06-08-08-success.log",
+            "hash": "2880bface82d6011997d363cf442328672a147b1e0ad9b564c3417896ba1336d"
+        },
+        {
+            "date": 1691290904245,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-06-08-09-success.log",
+            "hash": "1a1486780d2acdfb799334a91c4206c382db1b052a5826ac3ae72c024752896a"
+        }
+    ],
+    "hashType": "sha256"
+}
