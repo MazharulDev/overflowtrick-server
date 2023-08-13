@@ -1,20 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { Model } from "mongoose";
 
-export type UserName = {
-  firstName: string;
-  lastName: string;
-  middleName: string;
-};
-
 export type IUser = {
-  name: UserName; //embedded object
-  gender: "male" | "female";
-  dateOfBirth: string;
+  name: string; //embedded object
   email: string;
-  contactNo: string;
-  address: string;
-  profileImage?: string;
+  image?: string;
+  username: string;
 };
 
 export type UserModel = Model<IUser, Record<string, unknown>>;

@@ -1,50 +1,24 @@
 import { Schema, model } from "mongoose";
 import { IUser, UserModel } from "./user.interface";
-import { gender } from "./user.constant";
 
 export const UserSchema = new Schema<IUser, UserModel>(
   {
     name: {
-      type: {
-        firstName: {
-          type: String,
-          required: true,
-        },
-        lastName: {
-          type: String,
-          required: true,
-        },
-        middleName: {
-          type: String,
-          required: false,
-        },
-      },
+      type: String,
       required: true,
-    },
-    gender: {
-      type: String,
-      enum: gender,
-    },
-    dateOfBirth: {
-      type: String,
     },
     email: {
       type: String,
       unique: true,
       required: true,
     },
-    contactNo: {
+
+    image: {
       type: String,
-      unique: true,
-      required: true,
     },
-    address: {
+    username: {
       type: String,
       required: true,
-    },
-    profileImage: {
-      type: String,
-      // required: true,
     },
   },
   {
