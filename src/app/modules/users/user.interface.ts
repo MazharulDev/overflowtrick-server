@@ -10,3 +10,9 @@ export type IUser = {
 
 export type UserModel = Model<IUser, Record<string, unknown>>;
 // export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
+
+export type IUserFilters = {
+  searchTerm?: string;
+  email?: string;
+  name?: string;
+};
