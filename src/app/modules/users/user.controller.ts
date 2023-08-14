@@ -34,7 +34,21 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const email = req.params.email;
+
+  const result = await UserService.getSingleUser(email);
+
+  sendResponse<IUser>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Single User retrieved successfully !",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   getAllUsers,
+  getSingleUser,
 };

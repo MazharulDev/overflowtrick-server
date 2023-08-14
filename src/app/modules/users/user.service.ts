@@ -65,7 +65,13 @@ const getAllUsers = async (
   };
 };
 
+const getSingleUser = async (email: string): Promise<IUser | null> => {
+  const result = await User.findOne({ email });
+  return result;
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
+  getSingleUser,
 };
