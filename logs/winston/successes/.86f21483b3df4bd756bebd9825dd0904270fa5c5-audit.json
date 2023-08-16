@@ -49,6 +49,11 @@
             "date": 1691976242088,
             "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-14-08-07-success.log",
             "hash": "5f8af628121941fb1d72312ec8ff83a19835ae5f99b0e7f8c78d5a170c489114"
+        },
+        {
+            "date": 1692200245748,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-16-08-21-success.log",
+            "hash": "1fdeff526b52e504431364242568f80e99384f564bd3f97c565e40383f302d31"
         }
     ],
     "hashType": "sha256"

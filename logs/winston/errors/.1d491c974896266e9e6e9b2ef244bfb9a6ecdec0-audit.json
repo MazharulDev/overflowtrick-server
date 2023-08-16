@@ -49,6 +49,11 @@
             "date": 1691976242097,
             "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/errors/phu-2023-14-08-07-error.log",
             "hash": "494318d8e3dd62654e1172927d3f528fe2d98919cdcdffbb34fae92732d3bf48"
+        },
+        {
+            "date": 1692200245767,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/errors/phu-2023-16-08-21-error.log",
+            "hash": "25b31e603a5522a91d25a4f144bffb393411417020f204bcd7daa50adac9144c"
         }
     ],
     "hashType": "sha256"
