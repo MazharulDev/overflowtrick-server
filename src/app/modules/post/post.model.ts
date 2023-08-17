@@ -13,7 +13,6 @@ export const PostSchema = new Schema<IPost, PostModel>(
     },
     email: {
       type: String,
-      unique: true,
       required: true,
     },
 
