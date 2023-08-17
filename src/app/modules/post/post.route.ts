@@ -10,4 +10,8 @@ router.post(
   PostController.createPost
 );
 
+router.get("/", PostController.getAllPosts);
+
+router.get("/:email", PostController.getPostByEmail);
+
 export const Postroutes = router;
