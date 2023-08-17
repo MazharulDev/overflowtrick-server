@@ -66,7 +66,7 @@ const getAllPost = async (
 };
 
 const getPostByEmail = async (email: string): Promise<IPost[] | null> => {
-  const result = await Post.find({ email });
+  const result = await Post.find({ email }).sort("-createdAt");
   return result;
 };
 
