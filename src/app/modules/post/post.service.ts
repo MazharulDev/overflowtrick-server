@@ -65,13 +65,13 @@ const getAllPost = async (
   };
 };
 
-const getPostByEmail = async (email: string): Promise<IPost[] | null> => {
-  const result = await Post.find({ email }).sort("-createdAt");
+const getPostByUsername = async (username: string): Promise<IPost[] | null> => {
+  const result = await Post.find({ username }).sort("-createdAt");
   return result;
 };
 
 export const PostService = {
   createPost,
   getAllPost,
-  getPostByEmail,
+  getPostByUsername,
 };

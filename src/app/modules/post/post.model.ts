@@ -7,11 +7,11 @@ export const PostSchema = new Schema<IPost, PostModel>(
       type: String,
       required: true,
     },
-    userName: {
+    name: {
       type: String,
       required: true,
     },
-    email: {
+    username: {
       type: String,
       required: true,
     },

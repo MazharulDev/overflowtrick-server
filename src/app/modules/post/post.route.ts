@@ -12,6 +12,6 @@ router.post(
 
 router.get("/", PostController.getAllPosts);
 
-router.get("/:email", PostController.getPostByEmail);
+router.get("/:username", PostController.getPostByUsername);
 
 export const Postroutes = router;

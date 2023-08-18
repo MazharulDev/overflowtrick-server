@@ -19,6 +19,7 @@ export const UserSchema = new Schema<IUser, UserModel>(
     username: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   {

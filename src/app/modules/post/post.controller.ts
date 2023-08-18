@@ -34,15 +34,15 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getPostByEmail = catchAsync(async (req: Request, res: Response) => {
-  const email = req.params.email;
+const getPostByUsername = catchAsync(async (req: Request, res: Response) => {
+  const username = req.params.username;
 
-  const result = await PostService.getPostByEmail(email);
+  const result = await PostService.getPostByUsername(username);
 
   sendResponse<IPost[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get post by email retrieved successfully !",
+    message: "get post by username retrieved successfully !",
     data: result,
   });
 });
@@ -50,5 +50,5 @@ const getPostByEmail = catchAsync(async (req: Request, res: Response) => {
 export const PostController = {
   createPost,
   getAllPosts,
-  getPostByEmail,
+  getPostByUsername,
 };
