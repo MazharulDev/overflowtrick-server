@@ -6,6 +6,7 @@ import { postSearchableFields } from "./post.constant";
 import { IPost, IPostFilters } from "./post.interface";
 import { Post } from "./post.model";
 import { User } from "../users/user.model";
+import { IUser } from "../users/user.interface";
 
 const createPost = async (payload: IPost): Promise<IPost> => {
   const post = await Post.create(payload);
@@ -81,8 +82,22 @@ const getPostByUsername = async (username: string): Promise<IPost[] | null> => {
   return result;
 };
 
+const deletePostById = async (id: string): Promise<IUser | null> => {
+  const post = await Post.findById(id);
+  if (!post) {
+    throw new Error("Post not found");
+  }
+  const authorId = post.author;
+  await Post.findByIdAndDelete(id);
+  const result = await User.findByIdAndUpdate(authorId, {
+    $pull: { posts: id },
+  });
+  return result;
+};
+
 export const PostService = {
   createPost,
   getAllPost,
   getPostByUsername,
+  deletePostById,
 };

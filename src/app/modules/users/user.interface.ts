@@ -8,7 +8,8 @@ export type IUser = {
   image?: string;
   username: string;
   posts?: Types.ObjectId | IPost;
-  id: string;
+  id?: string | null;
+  _id?: string | null;
 };
 
 export type UserModel = Model<IUser, Record<string, unknown>>;

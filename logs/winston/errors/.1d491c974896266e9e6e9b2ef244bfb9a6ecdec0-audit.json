@@ -94,6 +94,16 @@
             "date": 1692443061822,
             "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/errors/phu-2023-19-08-17-error.log",
             "hash": "0a330c0d8d56f81c2b2886bf1b68f0818849014012296d1379c6558d041b6b0c"
+        },
+        {
+            "date": 1692450317721,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/errors/phu-2023-19-08-19-error.log",
+            "hash": "282e8eb754a2b5d1baeb70335efa6ca0c1c890a6836ba526804936e34f37befa"
+        },
+        {
+            "date": 1692457729088,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/errors/phu-2023-19-08-21-error.log",
+            "hash": "41f7f104409313f87532e9d39fa894100bcc2b3e7efd4be8a7ccb8ba61c70c50"
         }
     ],
     "hashType": "sha256"

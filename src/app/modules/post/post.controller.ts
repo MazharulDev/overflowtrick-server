@@ -7,6 +7,7 @@ import { Request, Response } from "express";
 import pick from "../../../shared/pick";
 import { postFilterableFields } from "./post.constant";
 import { paginationFields } from "../../../constants/pagination";
+import { IUser } from "../users/user.interface";
 
 const createPost = catchAsync(async (req: Request, res: Response) => {
   const { ...postData } = req.body;
@@ -47,8 +48,22 @@ const getPostByUsername = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deletePostById = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await PostService.deletePostById(id);
+
+  sendResponse<IUser | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "delete post successfully !",
+    data: result,
+  });
+});
+
 export const PostController = {
   createPost,
   getAllPosts,
   getPostByUsername,
+  deletePostById,
 };
