@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { Model } from "mongoose";
+import { Model, Types } from "mongoose";
+import { IUser } from "../users/user.interface";
 
 export type IPost = {
-  post: string;
-  name: string;
-  username: string;
-  image?: string;
+  text: string;
+  author: Types.ObjectId | IUser;
+  like?: { type: string; ref: string }[];
+  comments?: { text: string; commenter: Types.ObjectId | IUser }[];
 };
 
 export type PostModel = Model<IPost, Record<string, unknown>>;

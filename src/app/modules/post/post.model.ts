@@ -1,24 +1,35 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 import { IPost, PostModel } from "./post.interface";
 
 export const PostSchema = new Schema<IPost, PostModel>(
   {
-    post: {
+    text: {
       type: String,
       required: true,
     },
-    name: {
-      type: String,
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
-    username: {
-      type: String,
-      required: true,
-    },
+    like: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
 
-    image: {
-      type: String,
-    },
+    comments: [
+      {
+        text: {
+          type: String,
+        },
+        commenter: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      },
+    ],
   },
   {
     timestamps: true,

@@ -2,16 +2,14 @@ import { z } from "zod";
 
 const createPostZodSchema = z.object({
   body: z.object({
-    post: z.string({
+    text: z.string({
       required_error: "post is required",
     }),
-    name: z.string({
-      required_error: "name is required",
+    author: z.string({
+      required_error: "author id is required",
     }),
-    username: z.string({
-      required_error: "username is required",
-    }),
-    image: z.string().optional(),
+    like: z.string().optional(),
+    comments: z.string().optional(),
   }),
 });
 

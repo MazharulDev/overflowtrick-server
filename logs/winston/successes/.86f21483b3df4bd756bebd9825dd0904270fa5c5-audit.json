@@ -59,6 +59,26 @@
             "date": 1692378311186,
             "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-18-08-23-success.log",
             "hash": "073d234d367a1543014375e345086f90225fcb95125809b28ac4ee6196ea40ed"
+        },
+        {
+            "date": 1692411380990,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-08-success.log",
+            "hash": "7d3666d3e5990ae55107c1bec834dcf68ea3dc38b41932b305d36c2162a52eb3"
+        },
+        {
+            "date": 1692421768318,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-11-success.log",
+            "hash": "335c6d1fefe9b51b5cec014545616736fdb77e4fdbffcdf53307c0c6e1267503"
+        },
+        {
+            "date": 1692424910059,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-12-success.log",
+            "hash": "aa227342c600e53ce8ab6676dd103ca48615aac32b168e6cf92fa81e8db852f8"
+        },
+        {
+            "date": 1692429730050,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-13-success.log",
+            "hash": "80730953caaa40c88c19e55f70d665fe7049ede9fc0c6ec42a028bf7f6a0c81f"
         }
     ],
     "hashType": "sha256"

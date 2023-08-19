@@ -49,6 +49,7 @@ const getAllUsers = async (
     andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await User.find(whereConditions)
+    .populate("posts")
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -70,8 +71,14 @@ const getSingleUser = async (email: string): Promise<IUser | null> => {
   return result;
 };
 
+const getUserByUsername = async (username: string): Promise<IUser | null> => {
+  const result = await User.findOne({ username });
+  return result;
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
   getSingleUser,
+  getUserByUsername,
 };

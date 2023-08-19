@@ -21,6 +21,12 @@ export const UserSchema = new Schema<IUser, UserModel>(
       required: true,
       unique: true,
     },
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
   {
     timestamps: true,

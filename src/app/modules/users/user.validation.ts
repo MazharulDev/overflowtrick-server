@@ -14,6 +14,7 @@ const createUserZodSchema = z.object({
     username: z.string({
       required_error: "username is required",
     }),
+    posts: z.string().optional(),
   }),
 });
 

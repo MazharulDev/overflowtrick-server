@@ -10,5 +10,6 @@ router.post(
   UserController.createUser
 );
 router.get("/", UserController.getAllUsers);
+router.get("/username/:username", UserController.getUserByUsername);
 router.get("/:email", UserController.getSingleUser);
 export const UserRoutes = router;

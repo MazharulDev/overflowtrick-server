@@ -5,10 +5,15 @@ import { IPaginationOptions } from "../../../interfaces/pagination";
 import { postSearchableFields } from "./post.constant";
 import { IPost, IPostFilters } from "./post.interface";
 import { Post } from "./post.model";
+import { User } from "../users/user.model";
 
 const createPost = async (payload: IPost): Promise<IPost> => {
-  const result = await Post.create(payload);
-  return result;
+  const post = await Post.create(payload);
+  const populatedPost = await post.populate("author");
+  await User.findByIdAndUpdate(payload.author, {
+    $push: { posts: populatedPost?._id },
+  });
+  return populatedPost;
 };
 
 const getAllPost = async (
@@ -49,6 +54,9 @@ const getAllPost = async (
     andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await Post.find(whereConditions)
+    .populate("author")
+    .populate("like")
+    .populate("comments")
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
