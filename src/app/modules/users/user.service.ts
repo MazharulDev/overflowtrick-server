@@ -67,12 +67,12 @@ const getAllUsers = async (
 };
 
 const getSingleUser = async (email: string): Promise<IUser | null> => {
-  const result = await User.findOne({ email });
+  const result = await User.findOne({ email }).populate("posts");
   return result;
 };
 
 const getUserByUsername = async (username: string): Promise<IUser | null> => {
-  const result = await User.findOne({ username });
+  const result = await User.findOne({ username }).populate("posts");
   return result;
 };
 

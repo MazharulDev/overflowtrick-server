@@ -4,7 +4,10 @@ import { IUser } from "../users/user.interface";
 
 export type IPost = {
   text: string;
-  author: Types.ObjectId | IUser;
+  author: {
+    type: Types.ObjectId | IUser;
+    _id: Types.ObjectId;
+  };
   like?: { type: string; ref: string }[];
   comments?: { text: string; commenter: Types.ObjectId | IUser }[];
 };

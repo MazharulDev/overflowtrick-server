@@ -79,6 +79,21 @@
             "date": 1692429730050,
             "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-13-success.log",
             "hash": "80730953caaa40c88c19e55f70d665fe7049ede9fc0c6ec42a028bf7f6a0c81f"
+        },
+        {
+            "date": 1692437663644,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-15-success.log",
+            "hash": "0573c15a6f60b27b77f00ddc0bc5cf6e909d2215649a934d79cd818d70afde3b"
+        },
+        {
+            "date": 1692439472861,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-16-success.log",
+            "hash": "070951491aa7b19a9d641c60465dd7093b32e103edcb9c03fe61e41386c0c466"
+        },
+        {
+            "date": 1692443061721,
+            "name": "/home/mazharuldev/project/overflowtrick/overflowtrick-backend/logs/winston/successes/phu-2023-19-08-17-success.log",
+            "hash": "09c9af1881037cdd50a65343717d66e5cdee0197d8a137c869becb7b606d6e88"
         }
     ],
     "hashType": "sha256"

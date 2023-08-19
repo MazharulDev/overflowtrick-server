@@ -10,9 +10,12 @@ import { User } from "../users/user.model";
 const createPost = async (payload: IPost): Promise<IPost> => {
   const post = await Post.create(payload);
   const populatedPost = await post.populate("author");
-  await User.findByIdAndUpdate(payload.author, {
-    $push: { posts: populatedPost?._id },
+  const authorId = populatedPost.author._id;
+
+  await User.findByIdAndUpdate(authorId, {
+    $push: { posts: { $each: [populatedPost._id], $position: 0 } },
   });
+
   return populatedPost;
 };
 
