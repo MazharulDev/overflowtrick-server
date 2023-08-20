@@ -12,6 +12,7 @@ router.post(
 
 router.get("/", PostController.getAllPosts);
 router.delete("/delete/:id", PostController.deletePostById);
+router.post("/like/:id", PostController.toggleLike);
 
 router.get("/:username", PostController.getPostByUsername);
 

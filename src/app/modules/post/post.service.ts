@@ -95,9 +95,32 @@ const deletePostById = async (id: string): Promise<IUser | null> => {
   return result;
 };
 
+const toggleLike = async (
+  postId: string,
+  userId: string
+): Promise<IPost | null> => {
+  const post = await Post.findById(postId);
+  if (!post) {
+    throw new Error("Post not found");
+  }
+
+  const userIndex = post?.like?.indexOf(userId);
+  if (userIndex === -1) {
+    // User hasn't liked the post, so add the like
+    post?.like?.push(userId);
+  } else {
+    // User has liked the post, so remove the like
+    post?.like?.splice(userIndex, 1);
+  }
+
+  await post.save();
+  return post;
+};
+
 export const PostService = {
   createPost,
   getAllPost,
   getPostByUsername,
   deletePostById,
+  toggleLike,
 };

@@ -8,7 +8,7 @@ export type IPost = {
     type: Types.ObjectId | IUser;
     _id: Types.ObjectId;
   };
-  like?: { type: string; ref: string }[];
+  like?: any;
   comments?: { text: string; commenter: Types.ObjectId | IUser }[];
 };
 

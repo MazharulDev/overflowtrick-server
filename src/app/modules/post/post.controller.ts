@@ -61,9 +61,24 @@ const deletePostById = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const toggleLike = catchAsync(async (req: Request, res: Response) => {
+  const postId = req.params.id;
+  const userId = req.body.userId;
+
+  const result = await PostService.toggleLike(postId, userId);
+
+  sendResponse<IPost>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "get post by username retrieved successfully !",
+    data: result,
+  });
+});
+
 export const PostController = {
   createPost,
   getAllPosts,
   getPostByUsername,
   deletePostById,
+  toggleLike,
 };
