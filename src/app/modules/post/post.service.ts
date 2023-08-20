@@ -99,7 +99,7 @@ const toggleLike = async (
   postId: string,
   userId: string
 ): Promise<IPost | null> => {
-  const post = await Post.findById(postId).populate("like");
+  const post = await Post.findById(postId);
   if (!post) {
     throw new Error("Post not found");
   }
