@@ -35,15 +35,15 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getPostByUsername = catchAsync(async (req: Request, res: Response) => {
-  const username = req.params.username;
+const getPostByUserId = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.params.userId;
 
-  const result = await PostService.getPostByUsername(username);
+  const result = await PostService.getPostByUserId(userId);
 
   sendResponse<IPost[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "get post by username retrieved successfully !",
+    message: "get post by user id retrieved successfully !",
     data: result,
   });
 });
@@ -78,7 +78,7 @@ const toggleLike = catchAsync(async (req: Request, res: Response) => {
 export const PostController = {
   createPost,
   getAllPosts,
-  getPostByUsername,
+  getPostByUserId,
   deletePostById,
   toggleLike,
 };

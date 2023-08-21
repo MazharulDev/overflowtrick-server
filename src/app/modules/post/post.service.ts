@@ -77,8 +77,10 @@ const getAllPost = async (
   };
 };
 
-const getPostByUsername = async (username: string): Promise<IPost[] | null> => {
-  const result = await Post.find({ username }).sort("-createdAt");
+const getPostByUserId = async (author: string): Promise<IPost[] | null> => {
+  const result = await Post.find({ author })
+    .populate("like")
+    .sort("-createdAt");
   return result;
 };
 
@@ -120,7 +122,7 @@ const toggleLike = async (
 export const PostService = {
   createPost,
   getAllPost,
-  getPostByUsername,
+  getPostByUserId,
   deletePostById,
   toggleLike,
 };
