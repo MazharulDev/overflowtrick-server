@@ -75,10 +75,24 @@ const toggleLike = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getPostById = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await PostService.getPostById(id);
+
+  sendResponse<IPost>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "get post by id retrieved successfully !",
+    data: result,
+  });
+});
+
 export const PostController = {
   createPost,
   getAllPosts,
   getPostByUserId,
   deletePostById,
   toggleLike,
+  getPostById,
 };

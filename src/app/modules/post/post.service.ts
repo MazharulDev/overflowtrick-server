@@ -119,10 +119,19 @@ const toggleLike = async (
   return post;
 };
 
+const getPostById = async (id: string): Promise<IPost | null> => {
+  const result = await Post.findOne({ _id: id })
+    .populate("author")
+    .populate("like")
+    .populate("comments");
+  return result;
+};
+
 export const PostService = {
   createPost,
   getAllPost,
   getPostByUserId,
   deletePostById,
   toggleLike,
+  getPostById,
 };

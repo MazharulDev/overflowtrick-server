@@ -14,6 +14,8 @@ router.get("/", PostController.getAllPosts);
 router.delete("/delete/:id", PostController.deletePostById);
 router.post("/like/:id", PostController.toggleLike);
 
+router.get("/post/:id", PostController.getPostById);
+
 router.get("/:userId", PostController.getPostByUserId);
 
 export const Postroutes = router;
