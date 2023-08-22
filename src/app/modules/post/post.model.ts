@@ -22,7 +22,7 @@ export const PostSchema = new Schema<IPost, PostModel>(
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Comment",
       },
     ],
   },

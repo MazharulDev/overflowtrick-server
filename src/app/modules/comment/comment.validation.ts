@@ -1,2 +1,16 @@
+import { z } from "zod";
 
-// Define your validations here
+const createCommentZodSchema = z.object({
+  body: z.object({
+    text: z.string({
+      required_error: "comment is required",
+    }),
+    author: z.string({
+      required_error: "author id is required",
+    }),
+  }),
+});
+
+export const CommentValidation = {
+  createCommentZodSchema,
+};

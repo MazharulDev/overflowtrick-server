@@ -123,7 +123,13 @@ const getPostById = async (id: string): Promise<IPost | null> => {
   const result = await Post.findOne({ _id: id })
     .populate("author")
     .populate("like")
-    .populate("comments");
+    .populate({
+      path: "comments",
+      populate: {
+        path: "author",
+        model: "User",
+      },
+    });
   return result;
 };
 

@@ -56,6 +56,13 @@ fs.writeFileSync(
   path.join(targetDirectory, `${fileName}.constants.ts`),
   constantsTemplate
 );
+const modelTemplate = `
+// Define your model here
+`;
+fs.writeFileSync(
+  path.join(targetDirectory, `${fileName}.model.ts`),
+  modelTemplate
+);
 const validationTemplate = `
 // Define your validations here
 `;
