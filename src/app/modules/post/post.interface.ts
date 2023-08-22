@@ -9,7 +9,7 @@ export type IPost = {
     _id: Types.ObjectId;
   };
   like?: any;
-  comments?: { text: string; commenter: Types.ObjectId | IUser }[];
+  comments?: any;
 };
 
 export type PostModel = Model<IPost, Record<string, unknown>>;

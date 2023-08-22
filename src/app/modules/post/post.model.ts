@@ -21,13 +21,8 @@ export const PostSchema = new Schema<IPost, PostModel>(
 
     comments: [
       {
-        text: {
-          type: String,
-        },
-        commenter: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
       },
     ],
   },
