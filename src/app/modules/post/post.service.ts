@@ -7,6 +7,7 @@ import { IPost, IPostFilters } from "./post.interface";
 import { Post } from "./post.model";
 import { User } from "../users/user.model";
 import { IUser } from "../users/user.interface";
+import { Comment } from "../comment/comment.model";
 
 const createPost = async (payload: IPost): Promise<IPost> => {
   const post = await Post.create(payload);
@@ -91,6 +92,7 @@ const deletePostById = async (id: string): Promise<IUser | null> => {
   }
   const authorId = post.author;
   await Post.findByIdAndDelete(id);
+  await Comment.deleteMany({ postId: id });
   const result = await User.findByIdAndUpdate(authorId, {
     $pull: { posts: id },
   });
