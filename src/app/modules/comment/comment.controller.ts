@@ -4,6 +4,7 @@ import { CommentService } from "./comment.service";
 import sendResponse from "../../../shared/sendResponse";
 import { IComment } from "./comment.interfaces";
 import httpStatus from "http-status";
+import { IPost } from "../post/post.interface";
 
 const createComment = catchAsync(async (req: Request, res: Response) => {
   const { ...commentData } = req.body;
@@ -16,6 +17,20 @@ const createComment = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteCommentById = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await CommentService.deleteCommentById(id);
+
+  sendResponse<IPost | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "delete comment successfully !",
+    data: result,
+  });
+});
+
 export const CommentController = {
   createComment,
+  deleteCommentById,
 };
