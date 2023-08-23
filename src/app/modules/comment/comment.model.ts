@@ -12,6 +12,11 @@ export const CommentSchema = new Schema<IComment, CommentModel>(
       ref: "User",
       required: true,
     },
+    postId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Post",
+      required: true,
+    },
   },
   {
     timestamps: true,

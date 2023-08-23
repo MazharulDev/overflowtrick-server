@@ -8,6 +8,10 @@ export type IComment = {
     type: Types.ObjectId;
     _id: Types.ObjectId;
   };
+  postId: {
+    type: Types.ObjectId;
+    _id: Types.ObjectId;
+  };
 };
 
 export type CommentModel = Model<IComment, Record<string, unknown>>;

@@ -6,9 +6,8 @@ import { IComment } from "./comment.interfaces";
 import httpStatus from "http-status";
 
 const createComment = catchAsync(async (req: Request, res: Response) => {
-  const postId = req.params.postId;
   const { ...commentData } = req.body;
-  const result = await CommentService.createComment(postId, commentData);
+  const result = await CommentService.createComment(commentData);
   sendResponse<IComment>(res, {
     statusCode: httpStatus.OK,
     success: true,

@@ -8,6 +8,9 @@ const createCommentZodSchema = z.object({
     author: z.string({
       required_error: "author id is required",
     }),
+    postId: z.string({
+      required_error: "postId id is required",
+    }),
   }),
 });
 
