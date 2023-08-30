@@ -7,6 +7,7 @@ import { IUser } from "./user.interface";
 import pick from "../../../shared/pick";
 import { userFilterableFields } from "./user.constant";
 import { paginationFields } from "../../../constants/pagination";
+import { IPost } from "../post/post.interface";
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const { ...userData } = req.body;
@@ -60,9 +61,25 @@ const getUserByUsername = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getCommentNotification = catchAsync(
+  async (req: Request, res: Response) => {
+    const userId = req.body.userId;
+
+    const result = await UserService.getCommentNotification(userId);
+
+    sendResponse<IPost[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Your post comment Notification retrieved successfully !",
+      data: result,
+    });
+  }
+);
+
 export const UserController = {
   createUser,
   getAllUsers,
   getSingleUser,
   getUserByUsername,
+  getCommentNotification,
 };

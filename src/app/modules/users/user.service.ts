@@ -5,6 +5,9 @@ import { IPaginationOptions } from "../../../interfaces/pagination";
 import { userSearchableFields } from "./user.constant";
 import { IUser, IUserFilters } from "./user.interface";
 import { User } from "./user.model";
+import { IPost } from "../post/post.interface";
+import { Post } from "../post/post.model";
+import { Comment } from "../comment/comment.model";
 
 const createUser = async (payload: IUser): Promise<IUser> => {
   const result = await User.create(payload);
@@ -76,9 +79,25 @@ const getUserByUsername = async (username: string): Promise<IUser | null> => {
   return result;
 };
 
+const getCommentNotification = async (
+  userId: string
+): Promise<IPost[] | null> => {
+  const userAllPosts = await Post.find({ author: userId });
+  let allComments: string[] = [];
+  userAllPosts.forEach((post) => {
+    allComments = allComments.concat(post.comments);
+  });
+  const replies = await Comment.find({
+    _id: { $in: allComments },
+    author: { $ne: userId },
+  }).populate("author");
+  return replies;
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
   getSingleUser,
   getUserByUsername,
+  getCommentNotification,
 };
