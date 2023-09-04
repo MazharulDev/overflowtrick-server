@@ -9,7 +9,7 @@ router.post(
   validateRequest(UserValidation.createUserZodSchema),
   UserController.createUser
 );
-router.get("/notification", UserController.getCommentNotification);
+router.get("/notification/:userId", UserController.getCommentNotification);
 router.get("/", UserController.getAllUsers);
 router.get("/username/:username", UserController.getUserByUsername);
 router.get("/:email", UserController.getSingleUser);

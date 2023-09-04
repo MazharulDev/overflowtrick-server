@@ -90,7 +90,9 @@ const getCommentNotification = async (
   const replies = await Comment.find({
     _id: { $in: allComments },
     author: { $ne: userId },
-  }).populate("author");
+  })
+    .populate("author")
+    .sort("-createdAt");
   return replies;
 };
 

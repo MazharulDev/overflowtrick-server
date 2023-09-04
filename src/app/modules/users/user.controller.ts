@@ -63,7 +63,7 @@ const getUserByUsername = catchAsync(async (req: Request, res: Response) => {
 
 const getCommentNotification = catchAsync(
   async (req: Request, res: Response) => {
-    const userId = req.body.userId;
+    const { userId } = req.params;
 
     const result = await UserService.getCommentNotification(userId);
 
