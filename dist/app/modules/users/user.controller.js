@@ -73,9 +73,20 @@ const getUserByUsername = (0, catchAsync_1.default)((req, res) => __awaiter(void
         data: result,
     });
 }));
+const getCommentNotification = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.params;
+    const result = yield user_service_1.UserService.getCommentNotification(userId);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Your post comment Notification retrieved successfully !",
+        data: result,
+    });
+}));
 exports.UserController = {
     createUser,
     getAllUsers,
     getSingleUser,
     getUserByUsername,
+    getCommentNotification,
 };

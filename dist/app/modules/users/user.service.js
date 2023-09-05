@@ -24,6 +24,8 @@ exports.UserService = void 0;
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const user_constant_1 = require("./user.constant");
 const user_model_1 = require("./user.model");
+const post_model_1 = require("../post/post.model");
+const comment_model_1 = require("../comment/comment.model");
 const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield user_model_1.User.create(payload);
     return result;
@@ -77,9 +79,24 @@ const getUserByUsername = (username) => __awaiter(void 0, void 0, void 0, functi
     const result = yield user_model_1.User.findOne({ username }).populate("posts");
     return result;
 });
+const getCommentNotification = (userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const userAllPosts = yield post_model_1.Post.find({ author: userId });
+    let allComments = [];
+    userAllPosts.forEach((post) => {
+        allComments = allComments.concat(post.comments);
+    });
+    const replies = yield comment_model_1.Comment.find({
+        _id: { $in: allComments },
+        author: { $ne: userId },
+    })
+        .populate("author")
+        .sort("-createdAt");
+    return replies;
+});
 exports.UserService = {
     createUser,
     getAllUsers,
     getSingleUser,
     getUserByUsername,
+    getCommentNotification,
 };
