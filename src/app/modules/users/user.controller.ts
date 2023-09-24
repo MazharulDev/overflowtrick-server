@@ -76,10 +76,24 @@ const getCommentNotification = catchAsync(
   }
 );
 
+const updateUser = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const payload = req.body;
+  const result = await UserService.updateUser(id, payload.userData);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Update your profile",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   getAllUsers,
   getSingleUser,
   getUserByUsername,
   getCommentNotification,
+  updateUser,
 };

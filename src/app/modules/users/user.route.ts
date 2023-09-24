@@ -13,4 +13,5 @@ router.get("/notification/:userId", UserController.getCommentNotification);
 router.get("/", UserController.getAllUsers);
 router.get("/username/:username", UserController.getUserByUsername);
 router.get("/:email", UserController.getSingleUser);
+router.patch("/:id", UserController.updateUser);
 export const UserRoutes = router;
