@@ -93,10 +93,17 @@ const getCommentNotification = (userId) => __awaiter(void 0, void 0, void 0, fun
         .sort("-createdAt");
     return replies;
 });
+const updateUser = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_model_1.User.findByIdAndUpdate({ _id: id }, payload, {
+        new: true,
+    });
+    return result;
+});
 exports.UserService = {
     createUser,
     getAllUsers,
     getSingleUser,
     getUserByUsername,
     getCommentNotification,
+    updateUser,
 };

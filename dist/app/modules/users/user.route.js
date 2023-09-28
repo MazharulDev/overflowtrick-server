@@ -14,4 +14,5 @@ router.get("/notification/:userId", user_controller_1.UserController.getCommentN
 router.get("/", user_controller_1.UserController.getAllUsers);
 router.get("/username/:username", user_controller_1.UserController.getUserByUsername);
 router.get("/:email", user_controller_1.UserController.getSingleUser);
+router.patch("/:id", user_controller_1.UserController.updateUser);
 exports.UserRoutes = router;
