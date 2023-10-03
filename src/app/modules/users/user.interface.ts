@@ -6,6 +6,9 @@ export type IUser = {
   name: string; //embedded object
   email: string;
   image?: string;
+  role: string;
+  phoneNumber: string;
+  bio: string;
   username: string;
   posts?: Types.ObjectId | IPost;
   id?: string | null;

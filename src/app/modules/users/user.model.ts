@@ -12,6 +12,17 @@ export const UserSchema = new Schema<IUser, UserModel>(
       unique: true,
       required: true,
     },
+    role: {
+      type: String,
+      required: true,
+      default: "user",
+    },
+    phoneNumber: {
+      type: String,
+    },
+    bio: {
+      type: String,
+    },
 
     image: {
       type: String,

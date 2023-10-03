@@ -15,10 +15,7 @@ const createUser = async (payload: IUser): Promise<IUser> => {
   const userExist = await User.find({ username: payload?.username });
   const exist = userExist[0]?.username;
   if (payload.username === exist) {
-    throw new ApiError(
-      httpStatus.BAD_REQUEST,
-      "username is taken, Enter another username"
-    );
+    throw new ApiError(httpStatus.BAD_REQUEST, "Username already exist!");
   }
   const result = await User.create(payload);
   return result;
