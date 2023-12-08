@@ -113,6 +113,16 @@ const updateUser = async (
   return result;
 };
 
+const deleteUser = async (id: string): Promise<IUser | null | undefined> => {
+  const findUser = await User.findById(id);
+  if (findUser) {
+    const result = await User.findByIdAndDelete(id);
+    await Post.deleteMany({ author: id });
+    await Comment.deleteMany({ author: id });
+    return result;
+  }
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
@@ -120,4 +130,5 @@ export const UserService = {
   getUserByUsername,
   getCommentNotification,
   updateUser,
+  deleteUser,
 };
