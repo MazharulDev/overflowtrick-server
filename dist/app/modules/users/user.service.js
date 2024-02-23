@@ -19,6 +19,9 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
@@ -26,7 +29,15 @@ const user_constant_1 = require("./user.constant");
 const user_model_1 = require("./user.model");
 const post_model_1 = require("../post/post.model");
 const comment_model_1 = require("../comment/comment.model");
+const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
+const http_status_1 = __importDefault(require("http-status"));
 const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const userExist = yield user_model_1.User.find({ username: payload === null || payload === void 0 ? void 0 : payload.username });
+    const exist = (_a = userExist[0]) === null || _a === void 0 ? void 0 : _a.username;
+    if (payload.username === exist) {
+        throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, "Username already exist!");
+    }
     const result = yield user_model_1.User.create(payload);
     return result;
 });
@@ -99,6 +110,15 @@ const updateUser = (id, payload) => __awaiter(void 0, void 0, void 0, function* 
     });
     return result;
 });
+const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const findUser = yield user_model_1.User.findById(id);
+    if (findUser) {
+        const result = yield user_model_1.User.findByIdAndDelete(id);
+        yield post_model_1.Post.deleteMany({ author: id });
+        yield comment_model_1.Comment.deleteMany({ author: id });
+        return result;
+    }
+});
 exports.UserService = {
     createUser,
     getAllUsers,
@@ -106,4 +126,5 @@ exports.UserService = {
     getUserByUsername,
     getCommentNotification,
     updateUser,
+    deleteUser,
 };
